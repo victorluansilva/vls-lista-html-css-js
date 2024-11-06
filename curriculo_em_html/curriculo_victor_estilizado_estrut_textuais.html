@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Currículo</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(255, 255, 255);
+            background-color: #3d3d3d;
+            padding: 50px 150px 10px 150px;
+            height: 100%;
+        }
+
+        .destaques {
+            color: rgba(173, 255, 132, 0.859);
+            font-weight: 800;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #titulo {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 500;
+        }
+
+        a {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(125, 179, 99);
+            text-decoration: none;
+        }
+
+        /* a:visited {
+            color: rgb(125, 179, 99);
+            text-decoration: none;
+        } */
+
+        a:active{
+            color: rgb(255, 255, 255);
+        }
+
+        .texto_sublinhado {
+            text-decoration: dashed;
+        }
+
+
+        .espacamento-esq-10 {
+            padding-left: 20px;
+        }
+
+        header {
+            height: 100px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        blockquote.citacao {
+            /*padding: top right botton left; */
+            padding: 5px 50px 5px 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: italic;
+        }
+
+        .autor {
+            float: right;
+        }
+
+        mark {
+            background-color: #caf8ff;
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        mark .destaques {
+            color: rgb(125, 179, 99);
+        }
+
+        footer {
+            padding-top: 50px;
+        }
+
+        footer blockquote {
+            padding: 20px 150px 20px 150px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header id="titulo">
+        <h1>Currículo de Victor</h1>
+        <h2>Olá sou o <span class="destaques">Victor</span>, este é o meu Currículo</h2>
+    </header>
+
+    <hr>
+    <main>
+        <section>
+            <h3>Contato</h3>
+            <div class="espacamento-esq-10">
+                <p>
+                    <b>E-mail:</b> <a href="mailto:victorsilva@email.com" target="_blank">victorsilva@email.com</a>
+                </p>
+                <p>
+                    <b>LinkedIn:</b> <a href="http://linkedin.com/victorluansilva"
+                        target="_blank">linkedin.com/victorluansilva</a>
+                </p>
+            </div>
+
+            <hr>
+        </section>
+        <section>
+
+            <h3>Formação Acadêmica</h3>
+            <div class="espacamento-esq-10">
+                <p>Aqui há um pouco do meu histórico acadêmico</p>
+
+                <ul>
+                    <li>
+                        <p class="cor-vermelha-no-texto"><b>Ensino Médio | 2012</b> <i><u><a class="texto_sublinhado"
+                                        href="#">Escola Iracema de
+                                        Almeida</a></u></i></p>
+                        <ul>
+                            <li>Participei da empresa junior da <mark>UFSJ</mark></li>
+                            <li>Projeto de inovação e tecnologia</li>
+                            <li class="destaques">3º lugar na OBMEP</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        <p><b>Ensino Técnico em Informática| 2011 </b> <i><u><a href="#">COOPPED</a></u></i></p>
+                        <ul>
+                            <li>Manutenção de Computadores e Redes</li>
+                            <li>Instalação de Sistemas Operacionais e Configuração de Redes</li>
+                            <li>Desenvolvimento de automação Windows com Batch e Python</li>
+                        </ul>
+                    </li>
+                    <br>
+                </ul>
+            </div>
+
+            <hr>
+        </section>
+        <section>
+
+            <h3>Qualificações e Especializações</h3>
+            <div class="espacamento-esq-10">
+                <p>Minhas especializações e habilidades extras</p>
+
+                <ul>
+                    <li>
+                        <p><b>Carteira Habilitação</b>:
+                            <mark>
+                                <del><i>tipo <sup>A</sup></i></del>/
+                                <i>tipo <sup class="destaques">B</sup></i>
+                            </mark>
+
+                        </p>
+                    </li>
+                    <li>
+                        <p><b>Proeficiência em Inglês: </b> <i><sub>nivel</sub><strong class="destaques"> C</strong></i>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <blockquote class="citacao">
+            <pre>
+            O conhecimento torna a alma jovem e diminui a amargura da velhice. 
+            Colhe, pois, a sabedoria. 
+            Armazena suavidade para o amanhã.
+            
+            <small>
+                <span class="autor"><em>Leonardo da Vinci</em></span>
+            </small>
+        </pre>
+        </blockquote>
+    </footer>
+
+</body>
+
+</html>
