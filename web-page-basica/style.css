@@ -67,6 +67,7 @@ aside {
 
 aside .content {
     display: flex;
+    position: fixed;
     flex-direction: column;
     margin-top: 100px;
     
