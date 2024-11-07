@@ -1,26 +1,22 @@
+
 body {
     background-color: #282A36;
     color: #F8F8F2;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-    display: flex;
-    flex-direction: column;
+    /* text-align: center; */
     min-height: 100vh;
 }
 
+
 header {
     background-color: #44475A;
-    height: 50px;
-    max-height: 50px;
-    padding: 20px;
-    font-weight: 500;
+    height: 20px;
+    max-height: 20px;
+    padding: 10px 15px;
+    font-weight: 300;
     font-size: large;
-}
-
-nav {
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 header,
@@ -33,7 +29,10 @@ nav {
 }
 
 nav {
-    top: 100px
+    margin-bottom: 5px;
+    background-color: #F8F8F2;
+    top: 40px;
+    padding: 5px 0px;
 }
 
 a {
@@ -50,17 +49,33 @@ a:hover {
     color: #FF79C6;
 }
 
+main{
+    display: block;
+}
+
 main {
+    height: 100%;
+} 
+.main-content{
     display: flex;    
     flex-grow: 1;
-    margin-top: 150px;
+    margin-top: 80px;
     height: 100vh;
 }
 
 aside {
-    background-color: #FF79C6;
+    border-radius: 10px;
+    background-color: #BD93F9;
     padding: 10px;
     width: 20%;
+}
+
+aside .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    
+
 }
 
 .container {
@@ -70,13 +85,75 @@ aside {
 }
 
 section {
-    background-color: #44475A;
-    padding: 20px;
-    margin-bottom: 10px;
+    margin: 10px 10px;
+   line-height: 1.5;
+}
+section * {
+    margin: 5px 0px;
 }
 
 footer {
-    background-color: #44475A;
-    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     text-align: center;
+    width: 100%;
+    background-color: #44475A;
+
+}
+
+hr {
+    width: 100%;
+}
+/* Classes herdadas do curriculo */
+
+.destaques {
+    color: rgba(173, 255, 132, 0.859);
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#titulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+a.original-cv {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover.original-cv {
+    color: rgb(125, 179, 99);
+    text-decoration: none;
+}
+
+.texto_sublinhado {
+    text-decoration: dashed;
+}
+
+
+.espacamento-esq-10 {
+    padding-left: 20px;
+}
+
+blockquote.citacao.original-cv {
+    padding: 5px 50px 5px 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.autor.original-cv {
+    float: right;
+}
+
+mark.original-cv {
+    background-color: #caf8ff;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+mark.original-cv .destaques {
+    color: rgb(125, 179, 99);
 }
