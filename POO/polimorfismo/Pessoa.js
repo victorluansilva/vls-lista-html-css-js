@@ -17,4 +17,8 @@ export class Aluno extends Pessoa{
         this.escola = escola;
     }
 
+    infoPessoa(){
+        return super.infoPessoa() +  `;\n Matricula: ${this.matricula}; \n Escola: ${this.escola}`
+    }
+
 }
