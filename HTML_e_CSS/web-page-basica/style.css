@@ -1,0 +1,201 @@
+
+body {
+    background-color: #282A36;
+    color: #F8F8F2;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+header {
+    background-color: #44475A;
+    height: 20px;
+    padding: 10px 15px;
+    font-weight: 300;
+    font-size: large;
+}
+
+header,
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    margin-bottom: 5px;
+    background-color: #F8F8F2;
+    top: 40px;
+    padding: 5px 0px;
+}
+
+a {
+    color: #6272A4;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 500;
+    padding: 5px 10px 5px 10px;
+
+}
+
+a:hover {
+    background-color: #282A36;
+    color: #FF79C6;
+}
+
+main{
+    left: 0;
+    top: 90;
+    display: block;
+}
+
+
+.main-content{
+    display: flex;
+    margin-top: 80px;   
+    line-height: 1.5;
+
+}
+
+aside {
+    border-radius: 10px;
+    background-color: #BD93F9;
+    padding: 10px;
+    width: 30%;
+    max-width: 40%;
+}
+
+aside .content {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    margin-top: 100px;
+    
+
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0px 55px;
+}
+.section-container hr {
+    width: 100%;
+    margin: 25px 0px;
+}
+
+section{
+    background-color: #ffffff; /* Cor de fundo branca */
+    color: #282A36;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 16px; /* Espaçamento interno */
+    width: 100%;
+    max-width:1000px;
+    margin: 10px auto; /* Centralizar com margem */
+    transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    background-color: #44475A;
+
+}
+
+/* Litght theme*/
+body.light  {
+    background-color: #F8F8F2 !important;
+    color: #282A36 !important;
+}
+
+
+.light header {
+    background-color: #F8F8F2 !important;
+}
+
+
+.light nav, .light a {
+    background-color: #f8f8f8 !important;
+}
+
+.light a:hover {
+    background-color: #282A36 !important;
+    color: #FF79C6 !important;
+}
+
+.light aside {
+    background-color: #1d0244 !important;
+}
+
+
+.light section {
+    background-color: #282A36 !important;
+    color: #ffffff !important;
+
+}
+
+.light footer {
+    background-color: #44475A !important;
+
+}
+
+
+
+/* Classes herdadas do curriculo */
+
+.destaques {
+    color: rgba(173, 255, 132, 0.859);
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#titulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+a.original-cv {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover.original-cv {
+    color: rgb(125, 179, 99);
+    text-decoration: none;
+}
+
+.texto_sublinhado {
+    text-decoration: dashed;
+}
+
+
+.espacamento-esq-10 {
+    padding-left: 20px;
+}
+
+blockquote.citacao.original-cv {
+    padding: 5px 50px 5px 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.autor.original-cv {
+    float: right;
+}
+
+mark.original-cv {
+    background-color: #caf8ff;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+mark.original-cv .destaques {
+    color: rgb(125, 179, 99);
+}
