@@ -11,7 +11,7 @@ export default class Carro {
         this.capacidadeCombustivel = capacidadeCombustivel;
         this.qtdCombustivel = capacidadeCombustivel;
         this.kmRodados = 0;
-        this.velocidade = 0;
+        this.velocidade = 40;
     }
 
     info() {
@@ -23,51 +23,57 @@ export default class Carro {
         txtInfo += `Km/l: ${this.consumo} \n`
         txtInfo += `Km rodados: ${this.kmRodados} \n`
 
-        console.log(txtInfo);
+        console.log(txtInfo, `\n`);
     }
 
     acelerar(tempo) {
-        let txtInfo = "Info da aceleração:\n"
-
-        const calcConsumo = (km, consMedio) => {
-            return (km / consMedio);
-        }
-
+        const calcConsumo = (km, consMedio) => km / consMedio;
+    
+        const aceleracaoRecursiva = (tempoRestante) => {
+            if (this.qtdCombustivel <= 0 || tempoRestante <= 0) {
+                if (this.qtdCombustivel <= 0) {
+                    this.qtdCombustivel = 0; 
+                    console.log("O carro ficou sem combustível!");
+                }
+                return;
+            }
+    
+            this.velocidade += 1;
+            this.kmRodados += ((this.velocidade/10) * 2) ;
+            this.qtdCombustivel -= calcConsumo(10, this.consumo);
+    
+    
+            console.log(`Tempo restante: ${tempoRestante - 1}h`);
+            console.log(`Velocidade: ${this.velocidade} km/h`);
+            console.log(`Distância percorrida: ${this.kmRodados} km`);
+            console.log(`Combustível restante: ${this.qtdCombustivel.toFixed(2)} litros`);
+    
+            aceleracaoRecursiva(tempoRestante - 1);
+        };
+    
         if (this.qtdCombustivel > 0 && tempo > 0) {
-            let cont = 0
-            while (cont < tempo && this.qtdCombustivel > 0) {
-                this.velocidade+= 5;
-                this.kmRodados += 10;
-                this.qtdCombustivel -= calcConsumo(this.kmRodados, this.consumo);
-                cont++
-            }
-            if (this.qtdCombustivel <= 0) {
-                this.qtdCombustivel = 0
-                txtInfo = 'O carro ficou sem combutível!'
-
-            } else {
-                txtInfo += `O carro acelerou por ${tempo} hs \n`
-                txtInfo += `Velocidade atual de: ${this.velocidade} km/h \n`;
-                txtInfo += `Distância percorrida: ${this.kmRodados} km \n`;    
-                txtInfo += `${this.qtdCombustivel}l de combustível restante. \n`;
-            }
-
-            console.log(txtInfo)
+            aceleracaoRecursiva(tempo);
         } else {
-            console.log('Sem combutível!')
+            console.log("Sem combustível ou tempo inválido para acelerar!");
         }
+        console.log(`\n`)
     }
+    
 
     freiar(){
         const desacelerar = (velocidade) =>{
             if(velocidade <= 0 ){
-                return 0
+                this.velocidade = 0;
+                console.log(`Velocidade atual: ${this.velocidade} km/h (carro parado!)` )
+                return 0;
             } else {
-                return velocidade - this.freiar(velocidade - 1)
+                console.log(`Velocidade atual: ${velocidade} km/h` )                
+                this.velocidade = velocidade - 1;
+                return velocidade - desacelerar(velocidade - 1)
             }
         }
-
-        console.log(`Carro freiando...\n ${desacelerar(this.velocidade)}`);
+        console.log("Carro freiando...")
+        desacelerar(this.velocidade);
     }
 
 

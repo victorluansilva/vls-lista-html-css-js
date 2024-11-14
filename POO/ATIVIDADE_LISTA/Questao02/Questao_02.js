@@ -6,5 +6,5 @@ const carro = new Carro(donoDoCarro, 'Onix', 'Prata',2020,'Chevrollet',12,'Flex'
 
 carro.info()
 console.log(`\n`)
-carro.acelerar(60)
-//carro.frear()
+carro.acelerar(4)
+carro.freiar()
