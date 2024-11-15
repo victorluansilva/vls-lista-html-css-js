@@ -28,7 +28,14 @@ export default class Carro {
 
     acelerar(tempo) {
         const calcConsumo = (km, consMedio) => km / consMedio;
-    
+       /*
+       Equivalente a:
+       const calcConsumo = (km, consMedio) => {
+            return km / consMedio;
+        }
+       
+       */ 
+        // Método recursivo para aceleração
         const aceleracaoRecursiva = (tempoRestante) => {
             if (this.qtdCombustivel <= 0 || tempoRestante <= 0) {
                 if (this.qtdCombustivel <= 0) {
@@ -39,8 +46,8 @@ export default class Carro {
             }
     
             this.velocidade += 1;
-            this.kmRodados += ((this.velocidade/10) * 2) ;
-            this.qtdCombustivel -= calcConsumo(10, this.consumo);
+            this.kmRodados += ((this.velocidade/10) * 2);
+            this.qtdCombustivel -= calcConsumo(this.kmRodados, this.consumo);
     
     
             console.log(`Tempo restante: ${tempoRestante - 1}h`);
@@ -73,7 +80,7 @@ export default class Carro {
             }
         }
         console.log("Carro freiando...")
-        desacelerar(this.velocidade);
+        this.velocidade = desacelerar(this.velocidade);
     }
 
 
