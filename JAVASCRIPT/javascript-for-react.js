@@ -94,3 +94,58 @@ class Usuario extends Pessoa {
         console.log(`${this.nome}, ${this.idade} anos; \n Login: ${this.login}`);
     }
 }
+
+// JAVASCRIPT no HTML
+
+/* Formas de importar
+
+<script src="./exemplo.js"></script>
+
+ ou
+
+<script>
+    let exemplo = "";
+
+</script>
+
+*/
+
+<html>
+    <head>
+        <script src='./exemplo.js' defer></script>// defer -> fará com que o script seja executado após o carregamento de BODY
+    </head>
+    <body>
+        <div></div>
+
+        <script src='./exemplo.js'></script>
+    </body>
+ </html>   
+
+
+// type "module" -> para fazer importação e exportação de outros scripts, isto é, utilizando a programação modular do paradigma da POO
+
+
+//        <script type="module" src='./teste.js'></script>
+
+// Import e Exports
+
+
+// Export default para classe ou funcação (não pode haver mais de um export default em um arquivo .js)
+
+export default class Profesor {
+    constructor(nome, idade, departamento){
+        this.nome = nome;
+        this.idade = idade;
+        this.departamento = departamento;
+    }
+}
+
+const funcao = (a,b) => a+b ;
+
+//export default funcao;
+
+export {funcao}
+
+// Import -> importa objetos e métodos tendo como base a forma como são exportados
+
+import Profesor, {funcao} from './Profesor.js';
