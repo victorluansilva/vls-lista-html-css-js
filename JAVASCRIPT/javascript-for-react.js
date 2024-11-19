@@ -29,6 +29,13 @@ if (entrada === "valor") {
 } else {
     console.log("Valor não encontrado!");
 }
+
+let a = 0;
+
+//if inline
+let valor = (a >= 0) ? a + 1 : 0;
+
+
 // REPETIÇÃO
 
 for (let i = 0; i < 10; i++) {
@@ -60,6 +67,12 @@ console.log(soma(2, 3));
 const minhaFuncao = () => {
     return "Exemplo";
 };
+
+const funcaoExemplo = () =>{
+    return "exemplo"
+}
+
+const funcaoExemplo2 = nome => "Olá" + nome;
 
 const somaArrow = (a, b) => a + b;
 
