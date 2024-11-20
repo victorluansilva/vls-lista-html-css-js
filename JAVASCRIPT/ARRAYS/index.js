@@ -7,6 +7,7 @@ textArea.value = nomes.join(', \n');
 
 const qtdGrupos = document.getElementById('qtdGrupos');
 qtdGrupos.value = 2;
+
 const btnGerar = document.getElementById('btnGerar');
 const divResultado = document.getElementById('resultado');
 
