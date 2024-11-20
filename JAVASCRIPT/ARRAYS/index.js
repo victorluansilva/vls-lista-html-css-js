@@ -1,36 +1,41 @@
-let grupos = [];
-let nomes = ["Cauã", "Dayane", "Leo Stronda", "Japoneso", "Renato", "Jhony Due", "Igor igo igo", "Guinaldo", "Gordão", "Carlão"];
-
-
 const textArea = document.getElementById('nomesIn');
-textArea.value = nomes.join(', \n');
-
 const qtdGrupos = document.getElementById('qtdGrupos');
-qtdGrupos.value = 2;
-
 const btnGerar = document.getElementById('btnGerar');
 const divResultado = document.getElementById('resultado');
 
-const grupoNomes = (id, grupo) => {
-    const liUlNomes = () =>{
-        let list = ``
-        grupo.forEach(nome => {
-            list += `<li>${nome}</li>`
-        })
-        return list;
-    }
+const valorInicial = () => { 
+const nomes = ["Cauã", "Dayane", "Leo Stronda", "Japoneso", "Renato", "Jhony Due", "Igor igo igo", "Guinaldo", "Gordão", "Carlão"];
+textArea.value = nomes.join(', \n');
+qtdGrupos.value = 2;
+}
 
-    return `<div id='gp-${id}' class="grupoNomes">
-                <h2>Grupo ${(id+1)}</h2>
-                <hr>
-                <ul>
-                    ${liUlNomes()}
-                </ul>
-            </div>
-        `
+window.onload = () => {
+    valorInicial();
 }
 
 btnGerar.addEventListener('click', () => {
+
+    const grupoNomes = (id, grupo) => {
+        const liUlNomes = () =>{
+            let list = ``
+            grupo.forEach(nome => {
+                list += `<li>${nome}</li>`
+            })
+            return list;
+        }
+    
+        return `<div id='gp-${id}' class="grupoNomes">
+                    <h2>Grupo ${(id+1)}</h2>
+                    <hr>
+                    <ul>
+                        ${liUlNomes()}
+                    </ul>
+                </div>
+            `
+    }
+
+    
+
     let saidaFinal = ``;
 
     grupos.forEach((grupo,index) =>{
