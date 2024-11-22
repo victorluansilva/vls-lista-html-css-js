@@ -19,7 +19,7 @@ class StaticData {
     constructor(input , btn, data = []){
         this.input = input;
         this.btn = btn;
-        this.data = data | [];
+        this.data = [];
     }
     setInput = (input) =>{this.input = input};
     getInput = () =>{return this.input};
@@ -55,10 +55,12 @@ const buildButton = (nomeBotao = 'btn', textValue = 'Botão', onClick = ()=>{win
 
 const geraPessoa = () => {
     const pessoa = {
-        nome: staticData.getInput().value.split(',')[0],
-        idade: parseInt(staticData.getInput().value.split(',')[1])
+        nome: staticData.getInput().value.split(',')[0].trim(),
+        idade: parseInt(staticData.getInput().value.split(',')[1].trim())
     }
     
+    staticData.setData(pessoa);
+    console.log(staticData.getData());
 }
 
 const mostraPessoa = (id, pessoa) =>{
