@@ -21,19 +21,21 @@ class StaticData {
     constructor() {
         this.input = null;
         this.btn = null;
-        this.list = null;
+        this.listData = null;
+        this.searcher = null;
         this.data = [];
 
     }
     setInput = (input) => { this.input = input };
-    getInput = () => { return this.input };
+    getInput = () => this.input;
     setBtn = (btn) => { this.btn = btn };
-    getBtn = () => { return this.btn };
+    getBtn = () =>  this.btn;
     setData = (newData) => { this.data.push(newData) };
     getData = () => this.data;
-    // filterData = busca => { return busca}
-    setList = (newList) => { this.list = newList };
-    getList = () => this.list;
+    setList = (newList) => { this.listData = newList };
+    getList = () => this.listData;
+    setSearcher = (element) =>{this.searcher = element};
+    getSearcher = () => this.searcher;
 }
 
 // DECLARAÇÃO DE VARIÁVEIS
@@ -60,10 +62,11 @@ const buildButton = (nomeBotao = 'btn', textValue = 'Botão', onClick  = () => {
     return newButton;
 }
 
-const buildSearcherComponent = (searcher = () => { window.alert('Método precisa ser definido!') }) => {
+const buildSearcherComponent = (visibility = false, searcher = () => { window.alert('Método precisa ser definido!') }) => {
     const newDiv = document.createElement('div');
     newDiv.setAttribute('id','searcher');
-    newDiv.appendChild(buildInput('searchInpu', 'text','Digit sua pesquisa...' ));
+    newDiv.style.display = visibility?'block':'none';
+    newDiv.appendChild(buildInput('searchInput', 'text','Digite sua pesquisa...' ));
     newDiv.appendChild(buildButton('btnSearch', 'Buscar', searcher));
 
     return newDiv;
@@ -123,7 +126,8 @@ const geraPessoa = () => {
         window.alert(`Pessoa adicionada com sucesso!`)
 
         listarPessoas(staticData.getData())
-        buildSearcherComponent()
+        staticData.getSearcher().style.display = 'block';
+
 
     } catch (error) {
         //LANÇA A MENSAGEM DE ERRO NO ALERT
@@ -144,11 +148,13 @@ window.onload = () => {
 
     mainDiv.appendChild(input);
     mainDiv.appendChild(btn);
+    mainDiv.appendChild(buildSearcherComponent());
     mainDiv.appendChild(buildListPessoasDiv());
 
     staticData.setInput(document.getElementById(input.id));
     staticData.setBtn(document.getElementById(btn.id));
     staticData.setList(document.getElementById('listPessoas'));
+    staticData.setSearcher(document.getElementById('searcher'));
     console.log(staticData)
 
 };
