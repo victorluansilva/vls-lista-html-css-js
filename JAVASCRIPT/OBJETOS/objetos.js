@@ -29,12 +29,12 @@ class StaticData {
     setInput = (input) => { this.input = input };
     getInput = () => this.input;
     setBtn = (btn) => { this.btn = btn };
-    getBtn = () =>  this.btn;
+    getBtn = () => this.btn;
     setData = (newData) => { this.data.push(newData) };
     getData = () => this.data;
     setList = (newList) => { this.listData = newList };
     getList = () => this.listData;
-    setSearcher = (element) =>{this.searcher = element};
+    setSearcher = (element) => { this.searcher = element };
     getSearcher = () => this.searcher;
 }
 
@@ -42,6 +42,7 @@ class StaticData {
 
 const staticData = new StaticData();
 const mainDiv = document.getElementById('main');
+let pessoas = [];
 
 // CONSTRUÇÃO DE COMPONENTES
 const buildInput = (id = 'pessoaInput', type = 'text', placeholder = 'Fulano, 18...', disabled = false) => {
@@ -54,7 +55,7 @@ const buildInput = (id = 'pessoaInput', type = 'text', placeholder = 'Fulano, 18
     return newInput;
 }
 
-const buildButton = (nomeBotao = 'btn', textValue = 'Botão', onClick  = () => { window.alert('Método precisa ser definido!') }) => {
+const buildButton = (nomeBotao = 'btn', textValue = 'Botão', onClick = () => { window.alert('Método precisa ser definido!') }) => {
     const newButton = document.createElement('button');
     newButton.setAttribute('id', nomeBotao);
     newButton.innerText = textValue;
@@ -64,9 +65,9 @@ const buildButton = (nomeBotao = 'btn', textValue = 'Botão', onClick  = () => {
 
 const buildSearcherComponent = (visibility = false, searcher = () => { window.alert('Método precisa ser definido!') }) => {
     const newDiv = document.createElement('div');
-    newDiv.setAttribute('id','searcher');
-    newDiv.style.display = visibility?'block':'none';
-    newDiv.appendChild(buildInput('searchInput', 'text','Digite sua pesquisa...' ));
+    newDiv.setAttribute('id', 'searcher');
+    newDiv.style.display = visibility ? 'block' : 'none';
+    newDiv.appendChild(buildInput('searchInput', 'text', 'Digite sua pesquisa...'));
     newDiv.appendChild(buildButton('btnSearch', 'Buscar', searcher));
 
     return newDiv;
@@ -81,28 +82,6 @@ const buildListPessoasDiv = () => {
 
 // MÉTODOS DE GERAR PESSOA
 const geraPessoa = () => {
-
-    // MÉTODO PARA LISTAR PESSOAS
-    const listarPessoas = (pessoas = []) => {
-        staticData.getList().innerHTML = `<h2>Lista de Pessoas</h2>`;
-        const mostraPessoa = (id, pessoa) => {
-            //const listPessoas = document.getElementById()
-            const newDiv = document.createElement('div');
-            newDiv.setAttribute('id', `pessoa-${id}`);
-            newDiv.innerHTML = `
-        <ul>
-        <li>Nome: ${pessoa.nome}</li>
-        <li>Idade: ${pessoa.idade} </li>
-        </ul>
-        `
-            return newDiv;
-        }
-        pessoas.forEach((pessoa, id) => {
-            const newDiv = mostraPessoa(id, pessoa);
-            staticData.getList().appendChild(newDiv);
-        })
-
-    }
 
     //  ADICIONAR NOVOS DADOS
     try {
@@ -126,6 +105,9 @@ const geraPessoa = () => {
         window.alert(`Pessoa adicionada com sucesso!`)
 
         listarPessoas(staticData.getData())
+        
+        pessoas = staticData.getData().map(pessoa => new Pessoa(pessoa.nome, pessoa.idade));
+        console.log(pessoas);
         staticData.getSearcher().style.display = 'block';
 
 
@@ -134,6 +116,38 @@ const geraPessoa = () => {
         alert(error)
     }
 
+}
+
+
+// MÉTODO PARA LISTAR PESSOAS
+const listarPessoas = (pessoas = []) => {
+    staticData.getList().innerHTML = `<h2>Lista de Pessoas</h2>`;
+    const mostraPessoa = (id, pessoa) => {
+        const newDiv = document.createElement('div');
+        newDiv.setAttribute('id', `pessoa-${id}`);
+        newDiv.innerHTML = `
+        <ul>
+        <li>Nome: ${pessoa.nome}</li>
+        <li>Idade: ${pessoa.idade} </li>
+        </ul>
+        `
+        return newDiv;
+    }
+    pessoas.forEach((pessoa, id) => {
+        const newDiv = mostraPessoa(id, pessoa);
+        staticData.getList().appendChild(newDiv);
+    })
+
+}
+
+
+// MÉTODO DE BUSCA
+
+const buscarPessoas = () => {
+    const searchValue = document.getElementById('searchInput').value;
+    let pessoasFiltradas = pessoas.filter(pessoa => pessoa.nome.toLowerCase().includes(searchValue.toLowerCase()));
+
+    listarPessoas(pessoasFiltradas);
 }
 
 //INICIO PROGRAMA
@@ -148,7 +162,7 @@ window.onload = () => {
 
     mainDiv.appendChild(input);
     mainDiv.appendChild(btn);
-    mainDiv.appendChild(buildSearcherComponent());
+    mainDiv.appendChild(buildSearcherComponent(false,buscarPessoas));
     mainDiv.appendChild(buildListPessoasDiv());
 
     staticData.setInput(document.getElementById(input.id));
@@ -156,5 +170,7 @@ window.onload = () => {
     staticData.setList(document.getElementById('listPessoas'));
     staticData.setSearcher(document.getElementById('searcher'));
     console.log(staticData)
+
+
 
 };

@@ -162,3 +162,14 @@ export {funcao}
 // Import -> importa objetos e métodos tendo como base a forma como são exportados
 
 import Profesor, {funcao} from './Profesor.js';
+
+// Script exemplo 
+
+
+    let randomNumber = Math.random()
+    console.log(randomNumber)
+    let randomByArrayLength = randomNumber *alfabeto.length
+    console.log(randomByArrayLength)
+    let numAleatorioVetor = Math.floor(randomByArrayLength)
+    console.log(numAleatorioVetor)
+    console.log(alfabeto[numAleatorioVetor])
