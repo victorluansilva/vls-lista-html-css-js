@@ -1,4 +1,4 @@
-# ListaProgramacaoHTML_CSS_JS_VictorSilva
+# Lista de Exercícios de Programação WEB
 
-Lista de exercícios de programação Web
+Aqui será disponibilizado atividades e projetos realizados em sala de aula.
 
