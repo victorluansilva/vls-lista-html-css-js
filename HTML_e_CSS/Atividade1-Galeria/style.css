@@ -1,0 +1,14 @@
+body{
+    background-color: #f5f5f5; /*Cor de fundo*/
+    margin: 0;
+    padding: 20px;
+    color: #333; /*Cor do texto*/
+}
+
+h1{
+    color:crimson;
+}
+
+h4{
+    color:darkslategrey;
+}
