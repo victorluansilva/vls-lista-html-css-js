@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        form * {
+            display: block;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Formulários -->
+    <h1>Forms no HTML</h1>
+
+    <form>
+        <label for="inputExemplo">Nome:</label>
+        <input type="text" name="inputExemplo">
+        <label for="inputPassword">Senha:</label>
+        <input type="password" name="inputPassword">
+        <label for="campoTexto">Campo Texto:</label>
+        <textarea name="campoTexto"></textarea>
+        <label for="intEmail">Email:</label>
+        <input type="email" name="intEmail">
+    </form>
+
+    <!-- Tabelas -->
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Senha</th>
+            <th>Campo Texto</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>123456</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>johndoe@example.com</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>123456</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>johndoe@example.com</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>123456</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>johndoe@example.com</td>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>123456</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>johndoe@example.com</td>
+        </tr>
+    </table>
+
+    <!-- JavaScript -->
+    <!-- Parte 1 - o formulário que receberá os dados da pessoa -->
+    <form id="formPessoas">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="dataNasc">Data de nascimento:</label>
+        <input type="date" name="dataNasc" id="dataNasc" required>
+        <label for="telefone">Telefone:</label>
+        <input type="number" name="telefone" id="telefone">
+        <input type="submit" value="Adicionar">
+    </form>
+    <!-- Parte 2 - a tabela onde os nomes serão gerados -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody id="dadosPessoas">
+            <!-- Os dados serão inseridos aqui -->
+
+        </tbody>
+    </table>
+    <!-- Parte 4 - o textarea que receberá as pessoas e dados em lotes -->
+    <form id="pessoasEmLote">
+        <label for="Lista de Pessoas"> Adicionar Lista de Pessoas </label>
+        <textarea name="inputTextArea" id="inputTextArea"
+            placeholder="Adicione a pessoa, data de nascimento e numero de telefone separados por ',' e cada pessoa por ';'"></textarea>
+        <input type="submit" value="Adicionar">
+    </form>
+
+    <script>
+        // Parte 3 - o evento de submit do formulário - a lógica de programação acontece aqui
+        document.getElementById('formPessoas').addEventListener('submit', function (event) {
+            event.preventDefault(); // evita o comportamento padrão do formulário (carregar a página)
+
+            // Pega os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const dataNasc = document.getElementById('dataNasc').value;
+            const telefone = document.getElementById('telefone').value;
+            // Cria uma nova linha na tabela
+            const tr = document.createElement('tr');
+            // Cria os elementos da linha
+            const tdNome = document.createElement('td');
+            const tdDataNasc = document.createElement('td');
+            const tdTelefone = document.createElement('td');
+            // Insere os dados na nova linha
+            tdNome.textContent = nome;
+            tdDataNasc.textContent = dataNasc;
+            tdTelefone.textContent = telefone;
+            tr.appendChild(tdNome);
+            tr.appendChild(tdDataNasc);
+            tr.appendChild(tdTelefone);
+            // Insere a nova linha na tabela
+            document.getElementById('dadosPessoas').appendChild(tr);
+        });
+        //    Extra - adicionar pessoas em lote
+        document.getElementById('pessoasEmLote').addEventListener('submit', function (event) {
+            event.preventDefault(); // evita o comportamento padrão do formulário (carregar a página)
+            // Pega os dados do textarea
+            const inputTextArea = document.getElementById('inputTextArea').value;
+            // Divide a lista de pessoas por ';'
+            const pessoas = inputTextArea.split(';');
+            // Para cada pessoa na lista
+            const tabela = document.getElementById('dadosPessoas');
+            tabela.innerHTML = ``;
+            pessoas.forEach(pessoa => {
+                // Divide a pessoa por ','
+                const [nome, dataNasc, telefone] = pessoa.split(',');
+                // Cria uma nova linha na tabela
+                const tr = document.createElement('tr');
+                // Cria os elementos da linha
+                const tdNome = document.createElement('td');
+                const tdDataNasc = document.createElement('td');
+                const tdTelefone = document.createElement('td');
+                // Insere os dados na nova linha
+                tdNome.textContent = nome.trim();
+                tdDataNasc.textContent = dataNasc.trim();
+                tdTelefone.textContent = telefone.trim();
+                tr.appendChild(tdNome);
+                tr.appendChild(tdDataNasc);
+                tr.appendChild(tdTelefone);
+                // Insere a nova linha na tabela
+
+                tabela.appendChild(tr);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
