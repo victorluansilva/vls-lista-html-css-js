@@ -1,5 +1,8 @@
 #  TUTORIAL - PARTE 1: DE COMO CRIAR SEU GITHUB PAGES E SUBIR SUA WEB-PAGE
 
+A seguir você terá um passo-a-passo de como criar sua webpage e como adicioná-la ao githubpages. 
+> O material de apoio para este conteúdo, segue disponível no repositório [github.com/victorluansilva/vls-lista-html-css-js/tree/main/ATIVIDADE_WEBPAGE_PESSOAL](https://github.com/victorluansilva/vls-lista-html-css-js/tree/main/ATIVIDADE_WEBPAGE_PESSOAL)
+
 ## 🌐 Criando um repositório GitHub Pages (seunomedeusuario.github.io)
 
 
@@ -292,13 +295,14 @@ Caso não tenha o liveserver, abra o arquivo manualmente:
 2. Depois `git commit -m "deploy do meu website"` para commitar suas alterações
 3. E, por fim, `git push` para subir suas mudanças no servidor.
 
-E pronto. Espere um pouco, acesse seu link seunomeusuario.github.io e fique atualizando a página (tecla F5)até seu deploy carregar. 🤞😉
+Pronto! 🎉 
+>Espere um pouco, acesse seu link `seunomeusuario.github.io` e fique atualizando a página (tecla F5)até seu deploy carregar. 🤞😉
 
 ---
+<!-- pagebreak -->
+<div style="page-break-after: always;"></div>
 
-## 💡 Referênci teórica: A estrutura HTML e CSS contidos neste projeto.
-
-## Explicação - **Entendendo a Estrutura HTML e CSS do projeto**
+# 💡 EXPLICAÇÃO: **Entendendo a Estrutura HTML e CSS do projeto**
 
 ```html
 <!DOCTYPE html>
