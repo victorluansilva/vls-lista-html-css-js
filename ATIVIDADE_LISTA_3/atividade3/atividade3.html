@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratos Famosos</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .agrupar-elementos{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+        }
+        .pratos{
+            display: flex;
+            flex-direction: column;
+        }
+        .pratos img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pratos Famosos na Gastronomia</h2>
+    <div class="agrupar-elementos" >
+        <div class="pratos">
+            <img src="./src/molho-clemenza.jpg" alt="">
+            <p>Molho clemenza</p>        
+        </div>
+        <div class="pratos">
+            <img src="./src/tomate-verde-frito.jpg" alt="">
+            <p>Tomate verde frito</p>        
+        </div>
+    </div>
+</body>
+</html>
