@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Culinária de Ficção</title>
     <style>
+
+        body{
+            margin: auto 50vh;
+        }
+
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex-direction: row;
+            gap: 10px;
+        }
+        ul li{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 400px;
+        }
+
         .categoria{
             display: flex;
             flex-wrap: wrap;
@@ -20,8 +39,47 @@
             max-width: 200px;
         }
         .prato img{
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
+        }
+
+        
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+        }
+        thead{
+            background-color: #e1e1e1;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer{
+            padding: 20px;
+            text-align: center;
+            background-color: gray;
+            color: #fff;
+            width: 100%;
+        }
+
+        footer ul{
+            display: block;
+            list-style-type: none;
+            margin: 0;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        footer ul li{
+            display: inline;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
         }
     </style>
 </head>
@@ -95,6 +153,33 @@
         </li>
     </ul>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Receita</th>
+                <th>Dificuldade</th>
+                <th>Tempo de Preparo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Receita A</td>
+                <td>Média</td>
+                <td>1hr</td>
+            </tr>
+            <tr>
+                <td>Receita B</td>
+                <td>Média</td>
+                <td>2hr</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <footer>
+        Referências culinárias
+        <ul>
+            <li><a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKuozEkuSs4xYLRSMqhINE0yTjEyMDW3SE4xMLUyqDAzTExNSTNNSkk0tzAyM_DiTslUyC84vPzw1tRiAHINFLs&q=di+op%C3%A7%C3%B5es&oq=di+op%C3%A7%C3%B5es&gs_lcrp=EgZjaHJvbWUqEwgBEC4YrwEYxwEYyQMYgAQYjgUyCggAEAAY4wIYgAQyEwgBEC4YrwEYxwEYyQMYgAQYjgUyCggCEAAYChgWGB4yBwgDEAAY7wUyBwgEEAAY7wUyBwgFEAAY7wUyBwgGEAAY7wUyBwgHEAAY7wXSAQkxMjY4NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#:~:text=Ver%20por%20fora-,Di%20Op%C3%A7%C3%B5es%20Restaurante%20e%20Pizzaria,-4%2C5"> 🧆 Di'Opções</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
